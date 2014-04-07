@@ -9,6 +9,7 @@ The build process:
  - link kernel/makefile into this folder
  - create a folder 'iso' in the build folder
  - create a folder 'boot' in the iso folder
+ - run 'make' in the build folder
 
 The command 'make run' runs the kernel on qemu.
 
