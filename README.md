@@ -13,7 +13,7 @@ The build process:
 
 The command 'make run' runs the kernel on qemu.
 
-You need to have grub-mkreskue and qemu installed to use the given makefile. Another option is to edit the
+You need to have grub-mkrescue and qemu installed to use the given makefile. Another option is to edit the
 makefile to use your prefered emulator.
 
 Features:
