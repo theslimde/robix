@@ -3,7 +3,7 @@ OUTPUT := kernel.sys
 KERNEL_ROOT := /home/robin/os/robix/kernel
 KERNEL_BOOT := $(KERNEL_ROOT)/boot
 
-OBJS := boot.o main.o ostream.o
+OBJS := boot.o main.o basicvga.o kernel.o
 
 COMPILER := /home/robin/os/x86_64-elf-4.8.1/bin/x86_64-elf-g++
 LINKER := /home/robin/os/x86_64-elf-4.8.1/bin/x86_64-elf-ld
@@ -30,8 +30,11 @@ boot.o: $(KERNEL_BOOT)/boot.asm
 main.o: $(KERNEL_ROOT)/main.cpp
 	$(COMPILER) $(FLAGS) $(EXTRAFLAGS) -c $(KERNEL_ROOT)/main.cpp -o main.o
 
-ostream.o: $(KERNEL_ROOT)/util/ostream.cpp
-	$(COMPILER) $(FLAGS) $(EXTRAFLAGS) -c $(KERNEL_ROOT)/util/ostream.cpp -o ostream.o
+basicvga.o: $(KERNEL_ROOT)/driver/vga/basicvga.cpp
+	$(COMPILER) $(FLAGS) $(EXTRAFLAGS) -c $(KERNEL_ROOT)/driver/vga/basicvga.cpp -o basicvga.o
+
+kernel.o: $(KERNEL_ROOT)/kernel.cpp
+	$(COMPILER) $(FLAGS) $(EXTRAFLAGS) -c $(KERNEL_ROOT)/kernel.cpp -o kernel.o
 
 clean:
 	@rm -f $(OBJS) $(OUTPUT)
