@@ -41,6 +41,11 @@ public:
         vga_color background;
     };
 
+    enum class control
+    {
+        endl
+    };
+
     basicVga() noexcept;
 
     void clear() noexcept;
@@ -57,6 +62,7 @@ public:
     basicVga& operator<<(const int32_t i32) noexcept;
     basicVga& operator<<(const int64_t i64) noexcept;
     basicVga& operator<<(color c) noexcept;
+    basicVga& operator<<(control e) noexcept;
 
 private:
 

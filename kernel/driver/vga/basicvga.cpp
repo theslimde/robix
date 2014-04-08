@@ -62,9 +62,24 @@ basicVga& basicVga::operator<<(const int32_t i32) noexcept
     return operator<<((uint64_t) i32);
 }
 
+basicVga& basicVga::operator<<(const uint8_t ui8) noexcept
+{
+    return operator<<((uint64_t) ui8);
+}
+
 basicVga& basicVga::operator<<(color c) noexcept
 {
     terminalColor_ = c;
+    return *this;
+}
+
+basicVga& basicVga::operator<<(control c) noexcept
+{
+    switch(c) {
+    case control::endl:
+        appendChar('\n');
+    }
+
     return *this;
 }
 
